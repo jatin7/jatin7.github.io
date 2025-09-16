@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles */
+@layer components {
+  /* Navigation Styles */
+  .nav-link {
+    @apply flex items-center text-gray-300 hover:text-cyan-400 transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-cyan-500/10;
+  }
+
+  .mobile-nav-link {
+    @apply flex items-center text-gray-300 hover:text-cyan-400 transition-colors duration-200 py-3 border-b border-gray-800 last:border-b-0;
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-400 hover:to-purple-400 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center hover:shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-cyan-500 text-cyan-400 hover:bg-cyan-500 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 flex items-center justify-center hover:shadow-lg hover:shadow-cyan-500/25;
+  }
+
+  /* Glass Card Effect */
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-xl shadow-xl hover:bg-white/10 transition-all duration-300;
+  }
+
+  /* Social Icons */
+  .social-icon {
+    @apply w-12 h-12 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500/50 transition-all duration-200 transform hover:scale-110;
+  }
+
+  .social-icon-large {
+    @apply w-14 h-14 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-500/50 transition-all duration-200 transform hover:scale-110;
+  }
+
+  /* Form Styles */
+  .form-input {
+    @apply w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-200 backdrop-blur-md;
+  }
+
+  /* Skill Styles */
+  .skill-item {
+    @apply relative;
+  }
+
+  .skill-bar {
+    @apply w-full h-2 bg-gray-700 rounded-full overflow-hidden;
+  }
+
+  .skill-progress {
+    @apply h-full bg-gradient-to-r from-cyan-500 to-purple-500 transition-all duration-1000 ease-out rounded-full relative;
+  }
+
+  .skill-progress::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse;
+  }
+}
+
+/* Custom Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 217, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.8), 0 0 30px rgba(0, 217, 255, 0.6);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Floating Elements */
+.floating-element {
+  @apply absolute text-sm font-mono select-none pointer-events-none;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.floating-element:nth-child(3) {
+  animation-delay: -2s;
+}
+
+.floating-element:nth-child(4) {
+  animation-delay: -3s;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-cyan-500 to-purple-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-cyan-400 to-purple-400;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+  @apply bg-cyan-500 text-white;
+}
+
+::-moz-selection {
+  @apply bg-cyan-500 text-white;
+}
+
+/* Custom Focus States */
+button:focus,
+input:focus,
+textarea:focus {
+  @apply outline-none ring-2 ring-cyan-500 ring-offset-2 ring-offset-gray-900;
+}
+
+/* Responsive Text Sizing */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
